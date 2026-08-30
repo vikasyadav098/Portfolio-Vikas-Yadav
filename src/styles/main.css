@@ -1,0 +1,93 @@
+@import "tailwindcss";
+@config "../../tailwind.config.js";
+
+@layer base {
+  body {
+    background-color: #FAF7F2;
+    color: #2C2825;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  .dark body {
+    background-color: #121110;
+    color: #FAF7F2;
+  }
+  
+  h1, h2, h3, .font-serif-heading {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Paper Grain Texture Overlay */
+.paper-texture {
+  background-color: #FAF7F2;
+  background-image: radial-gradient(#2C2825 0.35px, transparent 0.35px), radial-gradient(#2C2825 0.35px, #FAF7F2 0.35px);
+  background-size: 14px 14px;
+  background-position: 0 0, 7px 7px;
+}
+
+.dark .paper-texture {
+  background-color: #121110;
+  background-image: radial-gradient(#FAF7F2 0.35px, transparent 0.35px), radial-gradient(#FAF7F2 0.35px, #121110 0.35px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF7F2;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #121110;
+}
+::-webkit-scrollbar-thumb {
+  background: #D5C3A3;
+  border-radius: 3px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #3D3834;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9E7B56;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #D5A26A;
+}
+
+/* Glassmorphism & Editorial Card Dark/Light Mode Fix */
+.editorial-card {
+  background-color: #FFFFFF;
+  backdrop-filter: blur(8px);
+  border: 1px solid #E5DFD5;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .editorial-card {
+  background-color: #1C1A18 !important;
+  border: 1px solid #3D3834 !important;
+}
+
+.editorial-card:hover {
+  border-color: rgba(158, 123, 86, 0.6);
+  box-shadow: 0 16px 36px -6px rgba(44, 40, 37, 0.12);
+  transform: translateY(-2px);
+}
+
+.dark .editorial-card:hover {
+  border-color: rgba(213, 162, 106, 0.6) !important;
+  box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Tear canvas positioning */
+#paper-tear-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
